@@ -161,3 +161,20 @@
   border-radius: 8px;
   box-shadow: 0 2px 14px rgba(0, 0, 0, 0.99);
 }
+
+.mymemes-column{
+  height: 650px;
+  width: 150px;
+  background-color: rgb(1, 39, 1);
+  margin-top: 45px;
+}
+
+.my-memes-img{
+  padding-left: 30.5%;
+  margin-top: 80px;
+}
+
+.mymemes-main{
+  height: 700px;
+  display: flex;
+}
