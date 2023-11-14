@@ -9,7 +9,6 @@ const MEME_API = "https://api.memegen.link"
 const REST_API = "http://localhost:5005"
 
 
-
 function CreatePage() {
 
     const {memeId} = useParams()    
@@ -44,7 +43,6 @@ function CreatePage() {
 
           // Posting created meme to the json server
         axios.post(`${REST_API}/tasks`, newMeme).then((response) => {
-            console.log("TEST");
 
         })
         .catch((error) => {console.error(error);
