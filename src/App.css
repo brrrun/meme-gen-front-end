@@ -1,5 +1,5 @@
 #root {
-  background-color: rgb(23, 23, 23);
+  background-color: rgb(34, 30, 43);
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
@@ -50,6 +50,7 @@
   left: 0;
   width: calc(100%);
   height:55px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.99);
 }
 
 .navbar-links{
@@ -63,7 +64,7 @@
   width: 40px;
   height: 40px;
   margin-top: 7px;
-  margin-left: 15px;
+  margin-left: 10px;
 }
 
 .home-page{
@@ -74,27 +75,35 @@
 .home-title{
   color: greenyellow;
   margin-top: 30px;
-  margin-bottom: 0px;
+  
 }
 
 .home-description{
-  color: rgb(192, 192, 192);
+  color: rgb(200, 200, 200);
   margin-bottom: 70px;
 }
 
 
 .homepage-link{
-  color: rgb(117, 189, 8);
+  color: greenyellow
+}
+
+.homepage-link:hover{
+  color: rgb(200, 200, 200);
 }
 
 .get-home-button{
-  color: rgb(117, 189, 8);
-  border: 1px solid rgb(101, 108, 246);
+  color: greenyellow;
+  border: 1px solid rgb(200, 200, 200);
   background-color: transparent;
   padding: 12px;
   border-radius: 8px;
   box-shadow: 0 2px 14px rgba(0, 0, 0, 0.99);
   margin-top: 90px;
+}
+
+.get-home-button:hover{
+  color: rgb(200, 200, 200);
 }
 
 .home-logo-image{
@@ -104,20 +113,32 @@
 }
 
 .get-link{
-  color:  rgb(117, 189, 8);
+  color:  greenyellow;
+}
+
+.get-link:hover{
+  color: rgb(200, 200, 200);
 }
 
 .create-link{
-  color:  rgb(117, 189, 8);
+  color:  greenyellow
+}
+
+.create-link:hover{
+  color: rgb(200, 200, 200);
 }
 
 .favourites-link{
-  color:  rgb(117, 189, 8);
+  color:  greenyellow;
+}
+
+.favourites-link:hover{
+  color: rgb(200, 200, 200);
 }
 
 .get-header{
   margin-top: 70px;
-  color: rgb(126, 199, 18)
+  color: rgb(200, 200, 200);
 }
 
 .meme-blank{
@@ -126,17 +147,17 @@
   padding-left: 7%;
   grid-template-columns: repeat(4, minmax(auto, 12fr));
   /* grid-template-rows: repeat(4, minmax(auto, 12fr));*/
-  gap: 40px;
+  gap: 15px;
   row-gap: 2px;
 }
 
 .get-card{
-  background-color: rgb(24, 23, 29); /* Background color for the card */
-  margin-top: 20%;
+  background-color: rgb(20, 14, 35); /* Background color for the card */
+  margin-top: 15%;
   border-radius: 8px; /* Rounded corners for the card */
   padding: 11px; /* Padding inside the card */
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.99);
-  height: 80%;
+  box-shadow: 0 0px 7px rgb(20, 14, 35);
+  height: 88%;
 }
 
 .meme-blank-img{
@@ -144,22 +165,27 @@
   min-height: 175px;
   max-height: 175px;
   margin-top: 1px;
-  margin-bottom: 19px;
-  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.99);
+  margin-bottom: 31px;
+  box-shadow: 0 0px 10px rgb(52, 47, 66);
   border-radius: 8px;
   height: auto;
   object-fit: cover;
 }
 
 .get-button{
-  color: rgb(117, 189, 8);
-  margin-top: 20px;
+  color: rgb(200, 200, 200);
+  margin-top: 23px;
   margin-bottom: 20px;
-  border: 1px solid rgb(101, 108, 246);
+  border: 2px solid rgb(52, 47, 66);
   background-color: transparent;
-  padding: 6px;
+  padding: 7px;
   border-radius: 8px;
-  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.99);
+  box-shadow: 0 0px 7px rgb(52, 47, 66);
+}
+
+.get-button:hover{
+  color: greenyellow;
+
 }
 
 .mymemes-column{
@@ -170,11 +196,16 @@
 }
 
 .my-memes-img{
-  padding-left: 30.5%;
+  padding-left: 40%;
   margin-top: 80px;
 }
 
 .mymemes-main{
   height: 700px;
   display: flex;
+}
+
+.create-form{
+  margin-top: 50px;
+
 }
