@@ -8,32 +8,51 @@ const MEME_API = "https://api.memegen.link"
 
 const REST_API = "http://localhost:5005"
 
-function TEST() {
+function MyMemes() {
 
-    const [savedMemes, setSavedMemes] = useState()               // created memes on JSON file
+  const [savedMemes, setSavedMemes] = useState();               // created memes on JSON file
+  const [isFavourite, setIsFavourite] = useState(false);
 
-    // FECTH INITIAL DATA OF THE JSON!? --> MY MEMES PAGE
+    // FECTH INITIAL DATA OF THE JSON!? --> MY MEMES PAGE 
+    
      useEffect(()=>{
         axios.get(`${REST_API}/tasks`).then((response)=>{
-          setSavedMemes(response.data);
-          console.log(savedMemes)
+          const created = response.data;
+          setSavedMemes(created);
         })
+        .catch((error) => console.log(error));
     }, []) 
+  
+    // Favourite on/off
+    const handleToggle = () => {
+      setIsFavourite(!isFavourite);
+    }
 
-    /*             setSavedMemes = [...savedMemes, response.data]; */
-    
+
   return (
     <div className="mymemes-main">
       <div className="mymemes-column">
-        <p>a map list of the already created memes should be here (shown in a row)</p>
+        {savedMemes &&
+        savedMemes.map((meme, id)=>{
+          return(
+            <div key={id}>
+              <Link> <img src={meme.imgLink} /> </Link>
+            </div>
+          )
+        })}
       </div>
+
+        
+
       <div> 
       <h2>Your new meme rocks!</h2> 
         {savedMemes && 
         savedMemes.filter((meme)=> meme.id === savedMemes.length).map((filteredMeme)=>{
           return(
             <div key={filteredMeme.id}>
-              <img src={filteredMeme.tasks.imgLink} />
+              <img src={filteredMeme.imgLink} />
+              <button onClick={handleToggle}> {isFavourite? "Remove Fav" : "Add Fav"} </button>
+              <button> Delete </button>
             </div>
           )})}
         
@@ -42,4 +61,4 @@ function TEST() {
   )
 }
 
-export default TEST
+export default MyMemes
