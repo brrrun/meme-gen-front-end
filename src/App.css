@@ -188,24 +188,73 @@
 
 }
 
+/*.mymemes-header{
+  padding-left: 50%;
+  border: 1px solid white;
+}*/
+
 .mymemes-column{
   height: 650px;
   width: 150px;
-  background-color: rgb(1, 39, 1);
-  margin-top: 45px;
+  background-color: rgb(52, 47, 66);
+  display: flex;
+  display: block;
 }
 
-.my-memes-img{
-  padding-left: 40%;
-  margin-top: 80px;
-}
+/*.my-memes-img{
+  padding-left: 4000px;
+  margin-top: 800px;
+}*/
 
 .mymemes-main{
-  height: 700px;
-  display: flex;
+  display: flex; 
+  justify-content: space-between; /*flex-direction*/
+  margin-top: 12px;
+  height: 695px;
 }
 
 .create-form{
   margin-top: 50px;
 
+}
+
+.new-meme{
+  margin-top:0px;
+}
+
+.created-image{
+  margin-top: 100px;
+  height: 250px;
+  /*display: flex;
+  align-items: center;*/
+  padding-right: 595px;
+}
+
+.saved-images{
+  height: 90px;
+}
+
+.mymemes-button{
+  margin-top: 15px;
+  padding-right: 595px;
+}
+
+.favourite-button{
+  margin-top: 10px;
+  color: rgb(200, 200, 200);
+  border: 2px solid rgb(52, 47, 66);
+  background-color: transparent;
+  padding: 9px;
+  border-radius: 8px;
+  box-shadow: 0 0px 7px rgb(52, 47, 66);
+}
+
+.delete-button{
+  margin-top: 10px;
+  color: rgb(200, 200, 200);
+  border: 3px solid rgb(52, 47, 66);
+  background-color: transparent;
+  padding: 9px;
+  border-radius: 8px;
+  box-shadow: 0 0px 7px rgb(52, 47, 66);
 }

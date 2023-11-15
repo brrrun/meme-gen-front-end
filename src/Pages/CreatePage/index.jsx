@@ -38,11 +38,12 @@ function CreatePage() {
     const handleSaveMeme = () => {
         // Create the new meme's object with its new properties
         const newMeme = {
-            imgLink: `${MEME_API}/images/${memeId}/${topText}/${bottomText}.png`
+            imgLink: `${MEME_API}/images/${memeId}/${topText}/${bottomText}.png`,
+            favourite: false
           };
 
           // Posting created meme to the json server
-        axios.post(`${REST_API}/tasks`, newMeme).then((response) => {
+        axios.post(`${REST_API}/created`, newMeme).then((response) => {
 
         })
         .catch((error) => {console.error(error);
