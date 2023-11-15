@@ -13,7 +13,7 @@ function MyMemes() {
   const [savedMemes, setSavedMemes] = useState();               // created memes on JSON file
   const [isFavourite, setIsFavourite] = useState(false);
 
-  const {createdId} = useParams();
+  const {id} = useParams();
 
     // FECTH INITIAL DATA OF THE JSON!? --> MY MEMES PAGE 
     
@@ -37,8 +37,9 @@ function MyMemes() {
 
     const navigate = useNavigate(); 
 
-    const deleteMeme = () =>{
-      axios.delete(`${REST_API}/created/${createdId}`).then(()=>{
+    const deleteMeme = (id) =>{
+      axios.delete(`${REST_API}/created/${id}`).then(()=>{
+        console.log("data deleted");
           navigate("/mymemes");
       })
       .catch((error)=> console.log(error)); // Api não tem Delete (nem Put)
@@ -68,7 +69,7 @@ function MyMemes() {
               <img className="created-image" src={filteredMeme.imgLink} />
               <div className="mymemes-button">
               <button className="favourite-button" onClick={handleToggle}> {isFavourite? "❤️" : "♡"} </button>
-              <button className="delete-button" onClick={deleteMeme}> Delete </button>
+              <button className="delete-button" onClick={() => deleteMeme(filteredMeme.id)}> Delete </button>
               </div>
             </div>
           )})}

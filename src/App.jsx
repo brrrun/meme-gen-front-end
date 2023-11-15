@@ -14,6 +14,7 @@ function App() {
       <Routes>
       <Route path="/" element={<Homepage/>}/>
       <Route path="/mymemes" element={<MyMemesPage/>}/>
+      <Route path="/mymemes/:id" element={<MyMemesPage/>}/>
       <Route path="/getpage" element={<Meme/>}/>
       <Route path="/createpage/:memeId" element={<CreatePage/>}/>
       </Routes>
