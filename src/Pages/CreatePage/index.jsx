@@ -1,5 +1,6 @@
 import { useState } from "react"
-import { Link, useParams, useNavigate } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import { useEffect } from "react"
 
@@ -7,19 +8,21 @@ import { useEffect } from "react"
 const MEME_API = "https://api.memegen.link"
 
 const REST_API = "http://localhost:5005"
+// "https://memezard-backend.onrender.com"
 
 
 function CreatePage() {
 
     const {memeId} = useParams()    
 
+    const navigate = useNavigate()
     
     const [topText, setTopText] = useState("Top Text");              // user Top Text
     const [bottomText, setBottomText] = useState("Bottom Text");        // user Bottom Text
     const [previewMeme, setPreviewMeme] = useState();                    // meme Preview
     const [selectedFont, setSelectedFont] = useState('impact');          // user Font
     const [selectedExtension, setSelectedExtension] = useState("jpg");   // user Extension
-    const [selectedWidth, setSelectedWidth] = useState(800);            // selected Width
+    const [selectedWidth, setSelectedWidth] = useState(500);            // selected Width
 
         // Fetching selected meme image and adding custom text on it
     useEffect(()=>{
@@ -32,24 +35,11 @@ function CreatePage() {
       
 
 
-    ///////////////////////////////////////  
-    // CANT USE "?" ON TEXT
+                // CANT USE "?" ON TEXT
     
-    const handleSaveMeme = () => {
-        // Create the new meme's object with its new properties
-        const newMeme = {
-            imgLink: `${MEME_API}/images/${memeId}/${topText}/${bottomText}.png`
-          };
 
-          // Posting created meme to the json server
-        axios.post(`${REST_API}/tasks`, newMeme).then((response) => {
 
-        })
-        .catch((error) => {console.error(error);
-        });
-} 
-  
-      /////////////////////////////////////////////////////////////////////////////
+
         // Font input
 
     const fontOptions = [
@@ -75,7 +65,6 @@ function CreatePage() {
 
         // Width input
     const widths = [
-        "800",
         "500",
         "300",
         "150"
@@ -84,7 +73,23 @@ function CreatePage() {
         setSelectedWidth(e.target.value);
       };
 
-    
+      const handleSaveMeme = (e) => {
+        e.preventDefault()
+        // Create the new meme's object with its new properties
+        const newMeme = {
+            imgLink: `${MEME_API}/images/${memeId}/${topText}/${bottomText}.png`,
+            favourite: false,
+            deleted: false
+          };
+
+          // Posting created meme to the json server
+        axios.post(`${REST_API}/created`, newMeme).then((response) => {
+            navigate("/mymemes");
+        })
+        .catch((error) => {console.error(error);
+        });
+} 
+  
 
   return ( 
     <div className="create-main"> 
@@ -112,3 +117,4 @@ function CreatePage() {
 }
 
 export default CreatePage
+
