@@ -32,13 +32,6 @@ function CreatePage() {
         .catch((error) => console.log(error));
     }, [])
     
-      
-
-
-                // CANT USE "?" ON TEXT
-    
-
-
 
         // Font input
 

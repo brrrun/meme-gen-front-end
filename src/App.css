@@ -51,6 +51,7 @@
   width: calc(100%);
   height:55px;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.99);
+  border: 1px solid grey;
 }
 
 .navbar-links{
@@ -85,12 +86,16 @@
 
 
 .homepage-link{
-  color: greenyellow
+  color: greenyellow;
+  /*text-decoration: none;
+  border: 1px solid transparent; 
+  transition: border-color 0.3s; */
 }
 
-.homepage-link:hover{
+/*.homepage-link:hover{
   color: rgb(200, 200, 200);
-}
+  border-color: greenyellow;
+}*/
 
 .get-home-button{
   color: greenyellow;
@@ -154,10 +159,18 @@
 .get-card{
   background-color: rgb(20, 14, 35); /* Background color for the card */
   margin-top: 15%;
+  border: 1px solid rgb(20, 14, 35);
   border-radius: 8px; /* Rounded corners for the card */
   padding: 11px; /* Padding inside the card */
   box-shadow: 0 0px 7px rgb(20, 14, 35);
   height: 88%;
+  transition: background-color 0.2s, border 0.1s;
+}
+
+.get-card:hover{
+  background-color: rgb(33, 25, 53);
+  border: 1px solid greenyellow;
+
 }
 
 .meme-blank-img{
@@ -188,24 +201,87 @@
 
 }
 
+/*.mymemes-header{
+  padding-left: 50%;
+  border: 1px solid white;
+}*/
+
 .mymemes-column{
   height: 650px;
   width: 150px;
-  background-color: rgb(1, 39, 1);
-  margin-top: 45px;
+  background-color: rgb(52, 47, 66);
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  border: 1px solid grey;
 }
 
-.my-memes-img{
-  padding-left: 40%;
-  margin-top: 80px;
-}
+/*.my-memes-img{
+  padding-left: 4000px;
+  margin-top: 800px;
+}*/
 
 .mymemes-main{
-  height: 700px;
-  display: flex;
+  display: flex; 
+  justify-content: space-between; /*flex-direction*/
+  margin-top: 12px;
+  height: 1895px;
+  border: 1px solid grey;
 }
 
 .create-form{
   margin-top: 50px;
 
+}
+
+.new-meme{
+  margin-top:0px;
+}
+
+.created-image{
+  margin-top: 100px;
+  height: 250px;
+  /*display: flex;
+  align-items: center;*/
+  padding-right: 595px;
+  border: 1px solid grey;
+}
+
+.saved-images{
+  height: 90px;
+  max-height: 70px;
+  max-width: calc(90%);
+  border: 1px solid greenyellow;
+  margin-bottom: 5px;
+}
+
+.mymemes-button{
+  margin-top: 15px;
+  padding-right: 595px;
+  border: 1px solid grey;
+}
+
+.favourite-button{
+  margin-top: 10px;
+  height: 45px;
+  color: rgb(200, 200, 200);
+  border: 2px solid rgb(52, 47, 66);
+  background-color: transparent;
+  padding: 9px;
+  border-radius: 8px;
+  box-shadow: 0 0px 7px rgb(52, 47, 66);
+  border: 1px solid grey;
+  margin-right: 4px;
+}
+
+.delete-button{
+  margin-top: 10px;
+  height: 45px;
+  color: rgb(200, 200, 200);
+  border: 3px solid rgb(52, 47, 66);
+  background-color: transparent;
+  padding: 9px;
+  border-radius: 8px;
+  box-shadow: 0 0px 7px rgb(52, 47, 66);
+  border: 1px solid grey;
 }

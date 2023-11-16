@@ -1,15 +1,10 @@
-import { useState } from "react"
-import { Link, useParams, useNavigate } from "react-router-dom"
-import axios from "axios"
-import { useEffect } from "react"
+import { useState, useEffect } from "react";
+import { Link, useParams, useNavigate } from "react-router-dom";
+import axios from "axios";
 
-
-const MEME_API = "https://api.memegen.link"
-
-const REST_API = "http://localhost:5005"
+const REST_API = "http://localhost:5005";
 
 function MyMemes() {
-
     const [savedMemes, setSavedMemes] = useState();               // created memes on JSON file
     const [savedFavs, setSavedFavs] = useState();
     const [mainMeme, setMainMeme] = useState();
@@ -45,6 +40,38 @@ function MyMemes() {
       //setMemeId(e.target.id)
      } 
 
+  useEffect(() => {
+    axios.get(`${REST_API}/created`).then((response) => {
+      const created = response.data;
+      setSavedMemes(created);
+    }).catch((error) => console.log(error));
+  }, []);
+
+  const handleToggle = (id) => {
+    const updatedMemes = savedMemes.map((meme) =>
+      meme.id === id ? { ...meme, favorite: !meme.favorite } : meme
+    );
+
+    // Move the favorite memes to the beginning of the array
+    const sortedMemes = [...updatedMemes].sort((a, b) => (b.favorite ? 1 : 0) - (a.favorite ? 1 : 0));
+
+    setSavedMemes(sortedMemes);
+
+    const updatedMeme = sortedMemes.find((meme) => meme.id === id);
+    
+    // Update the favorite status in the API
+    axios.post(`${REST_API}/created/${id}`, { favorite: updatedMeme.favorite })
+      .then((response) => console.log(response))
+      .catch((error) => console.error(error));
+  };
+
+  const deleteMeme = (id) => {
+    axios.delete(`${REST_API}/created/${id}`).then(() => {
+      const updatedMemes = savedMemes.filter((meme) => meme.id !== id);
+      setSavedMemes(updatedMemes);
+      navigate("/mymemes");
+    }).catch((error) => console.log(error));
+  }
 
      const  handleToggleUpd = (id) => {
       console.log(id);
@@ -170,4 +197,4 @@ function MyMemes() {
   )
 }
 
-export default MyMemes
+export default MyMemes;
