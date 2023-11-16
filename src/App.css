@@ -54,18 +54,19 @@
 }
 
 .navbar-links{
-  padding-left: 81%;
+  padding-left: 1%;
   display: flex;
   color: greenyellow;
   align-items: center;
   align-content: center;
+  padding-top: 10px;
 }
 
 .corner-meme{
-  width: 30px;
-  height: 30px;
+  width: 26px;
+  height: 26px;
   margin-left: 10px;
-  margin-top: 10px;
+  margin-top: 13px;
   display: flex;
   align-content: center;
 }
@@ -90,7 +91,7 @@
 .homepage-link{
   color: greenyellow;
   margin-left: 5px;
-  margin-top: 2px;
+  margin-top: 5px;
   /*text-decoration: none;
   border: 1px solid transparent; 
   transition: border-color 0.3s; */
@@ -123,7 +124,7 @@
 
 .get-link{
   color:  greenyellow;
-  margin-right: 10px;
+  margin-left: 10px;
 }
 
 .get-link:hover{
@@ -140,7 +141,7 @@
 
 .favourites-link{
   color:  greenyellow;
-  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .favourites-link:hover{

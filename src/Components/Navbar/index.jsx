@@ -5,9 +5,9 @@ function Navbar() {
     <nav className="navbar">
       <Link to="/" className="homepage-link"><img className="corner-meme" src="./../../images\homepage icon.png"/></Link>
         <div className="navbar-links">
-          <Link to="getpage" className="get-link"> NEW MEME </Link> 
-          <p>|</p>
-          <Link to="/mymemes" className="favourites-link"> MY MEMES</Link>
+            <Link to="/mymemes" className="favourites-link"> MEMES</Link>
+            <p>|</p>
+            <Link to="getpage" className="get-link"> NEW </Link> 
         </div>
     </nav>
   )

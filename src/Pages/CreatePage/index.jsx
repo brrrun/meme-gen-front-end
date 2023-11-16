@@ -17,8 +17,8 @@ function CreatePage() {
 
     const navigate = useNavigate()
     
-    const [topText, setTopText] = useState("Top Text");              // user Top Text
-    const [bottomText, setBottomText] = useState("Bottom Text");        // user Bottom Text
+    const [topText, setTopText] = useState(" ");              // user Top Text
+    const [bottomText, setBottomText] = useState(" ");        // user Bottom Text
     const [previewMeme, setPreviewMeme] = useState();                    // meme Preview
     const [selectedFont, setSelectedFont] = useState('impact');          // user Font
     const [selectedExtension, setSelectedExtension] = useState("jpg");   // user Extension
