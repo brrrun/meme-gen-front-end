@@ -7,7 +7,7 @@ import { useEffect } from "react"
 
 const MEME_API = "https://api.memegen.link"
 
-const REST_API = "http://localhost:5005"
+const REST_API = "https://memezard-backend.onrender.com"
 // "https://memezard-backend.onrender.com"
 
 

@@ -2,13 +2,12 @@ import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const REST_API = "http://localhost:5005";
+const REST_API = "https://memezard-backend.onrender.com";
 
 function MyMemes() {
     const [savedMemes, setSavedMemes] = useState();               // created memes on JSON file
     const [savedFavs, setSavedFavs] = useState();
     const [mainMeme, setMainMeme] = useState();
-    const [isFavourite, setIsFavourite] = useState();
     const [favouriteKey, setFavouriteKey] = useState();
     const [memeId, setMemeId] = useState();
     
@@ -35,8 +34,11 @@ function MyMemes() {
   
 
         // A TENTAR ATUALIZAR O MEMEID COM O CLICK NAS IMAGENS
-    const handleView = (e) => { 
-      setMainMeme(e.target.src); 
+    const handleView = (id, link, favourite) => { 
+      console.log(id, link, favourite)
+      setMainMeme(link); 
+      setMemeId(id);
+      setFavouriteKey(favourite);
       //setMemeId(e.target.id)
      } 
 
@@ -86,11 +88,7 @@ function MyMemes() {
             return meme.favourite;
           })
           setSavedFavs(favouriteMemes);
-          if(created && created.length > 0){
-            setMainMeme(created[created.length -1].imgLink);
-            setFavouriteKey(created[created.length -1].favourite);
-            setMemeId(created[created.length -1].id)
-          }
+          setFavouriteKey(!favouriteKey);
         })
 
      })}
@@ -167,7 +165,7 @@ function MyMemes() {
         savedFavs.map((filteredFavs)=>{
           return(
             <div key={filteredFavs.id}>
-              <img src={filteredFavs.imgLink} onClick={handleView} />
+              <img src={filteredFavs.imgLink} onClick={()=>handleView(filteredFavs.id, filteredFavs.imgLink, filteredFavs.favourite)} />
             </div>
           )})} 
       </div>
@@ -179,7 +177,7 @@ function MyMemes() {
         savedMemes.map((filteredMemes)=>{
           return(
             <div key={filteredMemes.id}>
-              <img src={filteredMemes.imgLink} onClick={handleView} />
+              <img src={filteredMemes.imgLink} onClick={()=>handleView(filteredMemes.id, filteredMemes.imgLink, filteredMemes.favourite)} />
             </div>
           )})} 
       </div>
