@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
-import { useEffect } from "react"
+import { useEffect, navigate } from "react"
 
 
 const MEME_API = "https://api.memegen.link"

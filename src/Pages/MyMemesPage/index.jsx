@@ -12,28 +12,28 @@ function MyMemes() {
     const [memeId, setMemeId] = useState();
     
       // Fetch all memes, created single main meme, and create useStates of favourite & deleted properties
+      async function getMemes(){
+        try{
+        let response = await axios.get(`https://memezard-backend.onrender.com/created`); 
+        const created = response.data;
+        setSavedMemes(created);
+        let favouriteMemes = created.filter((meme)=>{
+          return meme.favourite;
+        })
+        setSavedFavs(favouriteMemes);
+        if(created && created.length > 0){
+        setMainMeme(created[created.length -1].imgLink);
+        setFavouriteKey(created[created.length -1].favourite);
+        setMemeId(created[created.length -1].id)
+        }}
+        catch(error){
+          console.log(error);
+        }
+      }
     useEffect(() => {
-      axios
-        .get(`${REST_API}/created`)
-        .then((response) => {
-          const created = response.data;
-          setSavedMemes(created);
-          let favouriteMemes = created.filter((meme)=>{
-            return meme.favourite;
-          })
-          setSavedFavs(favouriteMemes);
-          if(created && created.length > 0){
-          setMainMeme(created[created.length -1].imgLink);
-          setFavouriteKey(created[created.length -1].favourite);
-          setMemeId(created[created.length -1].id)
-        }})
-      .catch((error) => console.log(error));
+      getMemes()
     }, []);
 
-      // CRIAR USEEFFECT PARA QUANDO O MAINMEME FOR ALTERADO, ATUALIZAR TAMBÉM O STATE DO favourite E DO memeId
-  
-
-        // A TENTAR ATUALIZAR O MEMEID COM O CLICK NAS IMAGENS
     const handleView = (id, link, favourite) => { 
       console.log(id, link, favourite)
       setMainMeme(link); 
@@ -41,13 +41,6 @@ function MyMemes() {
       setFavouriteKey(favourite);
       //setMemeId(e.target.id)
      } 
-
-  useEffect(() => {
-    axios.get(`${REST_API}/created`).then((response) => {
-      const created = response.data;
-      setSavedMemes(created);
-    }).catch((error) => console.log(error));
-  }, []);
 
   const handleToggle = (id) => {
     const updatedMemes = savedMemes.map((meme) =>
