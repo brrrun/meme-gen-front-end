@@ -42,6 +42,9 @@
 .read-the-docs {
   color: #888;
 }
+
+/*------------------------------------------------------*/
+
 .navbar{
   background-color: rgb(20, 14, 35);
   display: flex;
@@ -51,7 +54,7 @@
   width: calc(100%);
   height:55px;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.99);
-  border: 1px solid grey;
+  /*border: 1px solid grey;*/
 }
 
 .navbar-links{
@@ -61,12 +64,50 @@
   position: fixed;
 }
 
+.homepage-link{
+  color: greenyellow;
+  /*text-decoration: none;
+  border: 1px solid transparent; 
+  transition: border-color 0.3s; */
+}
+
+.homepage-link:hover{
+  color: rgb(200, 200, 200);
+  border-color: greenyellow;
+}
+
+.create-link{
+  color:  rgb(171, 255, 46);
+}
+
+.create-link:hover{
+  color: rgb(200, 200, 200);
+}
+
+.favourites-link{
+  color:  greenyellow;
+}
+
+.favourites-link:hover{
+  color: rgb(200, 200, 200);
+}
+
+.get-link{
+  color:  greenyellow;
+}
+
+.get-link:hover{
+  color: rgb(200, 200, 200);
+}
+
 .corner-meme{
   width: 40px;
   height: 40px;
   margin-top: 7px;
   margin-left: 10px;
 }
+
+/*------------------------------------------------------*/
 
 .home-page{
   width: 100%;
@@ -83,19 +124,6 @@
   color: rgb(200, 200, 200);
   margin-bottom: 70px;
 }
-
-
-.homepage-link{
-  color: greenyellow;
-  /*text-decoration: none;
-  border: 1px solid transparent; 
-  transition: border-color 0.3s; */
-}
-
-/*.homepage-link:hover{
-  color: rgb(200, 200, 200);
-  border-color: greenyellow;
-}*/
 
 .get-home-button{
   color: greenyellow;
@@ -117,29 +145,7 @@
   margin-top:130px;
 }
 
-.get-link{
-  color:  greenyellow;
-}
-
-.get-link:hover{
-  color: rgb(200, 200, 200);
-}
-
-.create-link{
-  color:  greenyellow
-}
-
-.create-link:hover{
-  color: rgb(200, 200, 200);
-}
-
-.favourites-link{
-  color:  greenyellow;
-}
-
-.favourites-link:hover{
-  color: rgb(200, 200, 200);
-}
+/*------------------------------------------------------*/
 
 .get-header{
   margin-top: 70px;
@@ -201,32 +207,36 @@
 
 }
 
-/*.mymemes-header{
-  padding-left: 50%;
-  border: 1px solid white;
-}*/
+/*------------------------------------------------------*/
 
-.mymemes-column{
-  height: 650px;
-  width: 150px;
-  background-color: rgb(52, 47, 66);
-  display: flex;
-  align-items: flex-start;
+
+.create-main{
+  display: flex; 
   flex-direction: column;
-  border: 1px solid grey;
+  padding-top: 10px;
+  height: 690px;
+  /*border: 1px solid grey;*/
 }
 
-/*.my-memes-img{
-  padding-left: 4000px;
-  margin-top: 800px;
-}*/
+.create-imgbox{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  height: 440px;
+} 
 
-.mymemes-main{
-  display: flex; 
-  justify-content: space-between; /*flex-direction*/
-  margin-top: 12px;
-  height: 1895px;
-  border: 1px solid grey;
+.create-img{
+  max-width: 100%;
+  max-height: 100%;
+  border: 2px solid rgb(20, 14, 35);
+  box-shadow: 0 0px 20px rgb(13, 9, 23);
+  border-radius: 7px;
+  /*border: 1px solid grey;*/
+}
+
+.create-header{
+  color: #e9ffc9;
+
 }
 
 .create-form{
@@ -234,54 +244,210 @@
 
 }
 
-.new-meme{
-  margin-top:0px;
-}
-
-.created-image{
-  margin-top: 100px;
-  height: 250px;
-  /*display: flex;
-  align-items: center;*/
-  padding-right: 595px;
-  border: 1px solid grey;
-}
-
-.saved-images{
-  height: 90px;
-  max-height: 70px;
-  max-width: calc(90%);
-  border: 1px solid greenyellow;
-  margin-bottom: 5px;
-}
-
-.mymemes-button{
-  margin-top: 15px;
-  padding-right: 595px;
-  border: 1px solid grey;
-}
-
-.favourite-button{
+.create-button{
   margin-top: 10px;
   height: 45px;
+  width: 300px;
   color: rgb(200, 200, 200);
   border: 2px solid rgb(52, 47, 66);
   background-color: transparent;
   padding: 9px;
   border-radius: 8px;
-  box-shadow: 0 0px 7px rgb(52, 47, 66);
-  border: 1px solid grey;
-  margin-right: 4px;
+  box-shadow: 0 0px 10px rgb(52, 47, 66);
+  /*border: 1px solid grey;*/
+}
+
+.create-button:hover{
+  background-color: transparent;
+  border: 1px solid greenyellow;
+  box-shadow: 0 0px 4px greenyellow;
+}
+
+/*------------------------------------------------------*/
+
+.mymemes-main{
+  display: flex; 
+  justify-content:space-between; /*flex-direction*/
+  margin-top: 15px;
+  height: 685px;
+  /*border: 1px solid grey;*/
+}
+
+.mymemes-created{
+  padding-top: 15px;
+  display: flex;
+  flex-direction: column;
+  /*border: 1px solid grey;*/
+  
+}
+
+.mymemes-header{
+  color: #e9ffc9;
+  /*border: 1px solid grey;*/
+}
+
+.created-memes{
+  /*height: 650px;*/
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  padding-top: 30px;
+  background-color: rgb(52, 47, 66);
+  border: 3px solid rgb(52, 47, 66);
+  box-shadow: 0 0px 15px rgb(17, 12, 29);
+  overflow-y: scroll;
+  height: 680px
+  /* border: 1px solid grey;*/
+}
+
+.created-header{
+  color: greenyellow;
+}
+
+.saved-memes{
+  display: flex;
+  flex-direction: column;
+  border-radius: 3px;
+  width:150px;
+  border: 1px solid rgb(20, 14, 35);
+  box-shadow: 0 0px 10px rgb(17, 12, 29);
+  margin-top: 15px;
+  margin-left: 18%;
+  /*border: 1px solid grey;*/
+}
+
+.saved-memes:hover{
+  background-color: transparent;
+  border: 1px solid greenyellow;
+  box-shadow: 0 0px 2px greenyellow;
+}
+
+.selected-section{
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  /*border: 1px solid grey;*/
+}
+
+.selected-meme{
+  max-width: 100%;
+  max-height: 100%;
+  border: 2px solid rgb(20, 14, 35);
+  box-shadow: 0 0px 20px rgb(13, 9, 23);
+  border-radius: 7px;
+  /*border: 1px solid grey;*/
+}
+
+.selectedmeme-box{
+  display: flex;
+  justify-content: center;
+  height: 450px;
+  width: 800px;
+  margin-bottom: 20px;
+  /*border: 1px solid grey*/
+}
+
+.fav-button{
+  margin-top: 10px;
+  height: 45px;
+  width: 300px;
+  color: rgb(200, 200, 200);
+  border: 2px solid rgb(52, 47, 66);
+  background-color: transparent;
+  padding: 9px;
+  border-radius: 8px;
+  box-shadow: 0 0px 10px rgb(52, 47, 66);
+  /*border: 1px solid grey;*/
+}
+
+.fav-button:hover{
+  background-color: transparent;
+  border: 1px solid greenyellow;
+  box-shadow: 0 0px 4px greenyellow;
 }
 
 .delete-button{
   margin-top: 10px;
   height: 45px;
+  width: 300px;
   color: rgb(200, 200, 200);
-  border: 3px solid rgb(52, 47, 66);
+  border: 2px solid rgb(52, 47, 66);
   background-color: transparent;
   padding: 9px;
   border-radius: 8px;
-  box-shadow: 0 0px 7px rgb(52, 47, 66);
-  border: 1px solid grey;
+  box-shadow: 0 0px 10px rgb(52, 47, 66);
+  /*border: 1px solid grey;*/
 }
+
+.delete-button:hover{
+  background-color: transparent;
+  border: 1px solid greenyellow;
+  box-shadow: 0 0px 4px greenyellow;
+}
+
+.fav-section{
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  padding-top: 30px;
+  background-color: rgb(52, 47, 66);
+  border: 3px solid rgb(52, 47, 66);
+  box-shadow: 0 0px 15px rgb(17, 12, 29);
+  overflow-y: scroll;
+  height: 680px;
+  /* border: 1px solid grey;*/
+}
+
+.favourites-header{
+  color: greenyellow;
+}
+
+.fav-images{
+  display: flex;
+  flex-direction: column;
+  border-radius: 3px;
+  width:150px;
+  border: 1px solid rgb(20, 14, 35);
+  box-shadow: 0 0px 10px rgb(17, 12, 29);
+  margin-top: 15px;
+  margin-left: 18%;
+  /*border: 1px solid grey;*/
+}
+
+.fav-images:hover{
+  background-color: transparent;
+  border: 1px solid greenyellow;
+  box-shadow: 0 0px 2px greenyellow;
+}
+/*------------------------------------------------------*/
+
+/*.created-image{
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  padding-right: 595px;
+  border: 1px solid grey;
+}  */
+
+/*.saved-images{
+  height: 90px;
+  max-height: 70px;
+  max-width: calc(90%);
+  border: 7px solid greenyellow;
+  margin-bottom: 5px;
+  /*border: 1px solid grey;
+}*/
+
+/*.mymemes-button{
+  margin-top: 15px;
+  padding-right: 595px;
+  /*border: 1px solid grey;
+}*/
+
+/*.my-memes-img{
+  padding-left: 4000px;
+  margin-top: 800px;
+}*/

@@ -17,8 +17,8 @@ function CreatePage() {
 
     const navigate = useNavigate()
     
-    const [topText, setTopText] = useState("Top Text");              // user Top Text
-    const [bottomText, setBottomText] = useState("Bottom Text");        // user Bottom Text
+    const [topText, setTopText] = useState(" ");              // user Top Text
+    const [bottomText, setBottomText] = useState(" ");        // user Bottom Text
     const [previewMeme, setPreviewMeme] = useState();                    // meme Preview
     const [selectedFont, setSelectedFont] = useState('impact');          // user Font
     const [selectedExtension, setSelectedExtension] = useState("jpg");   // user Extension
@@ -86,13 +86,15 @@ function CreatePage() {
 
   return ( 
     <div className="create-main"> 
-        <h1>Create Page</h1>
+        <h3 className="create-header">CREATE YOUR</h3>
         {!previewMeme &&
         <p>Sorry, there was an error!</p>}
-        {previewMeme && 
-        <div> <img src={`${MEME_API}/images/${memeId}/${topText}/${bottomText}.${selectedExtension}?&font=${selectedFont}&width=${selectedWidth}`}/>
+        <div className="create-imgbox">
+            {previewMeme && 
+            <div> <img className="create-img" src={`${MEME_API}/images/${memeId}/${topText}/${bottomText}.${selectedExtension}?&font=${selectedFont}&width=${selectedWidth}`}/>
+            </div>
+            }
         </div>
-        }
         <form onSubmit={handleSaveMeme}>
             <label> Top Text: <input type="text" name="top" value={topText} onChange={(e)=>setTopText(e.target.value)}/></label> <br />
             <label> Bottom Text: <input type="text" name="bottom" value={bottomText} onChange={(e)=>setBottomText(e.target.value)}/></label> <br />
@@ -102,7 +104,7 @@ function CreatePage() {
             </option>))} </select></label> <br />
             <label> Width: <select value={selectedWidth} onChange={handleWidthChange}>{widths.map((width, index) => (<option key={index} value={width}>{width}
             </option>))} </select></label> <br />
-            <button type="submit">Save your Awesome meme!</button>
+            <button className="create-button" type="submit">Save your Awesome meme!</button>
             </form>
 
     </div> 

@@ -152,37 +152,43 @@ function MyMemes() {
     
   return (
     <div className="mymemes-main">
-      <div>
-      <p>Favourites</p> 
-      {savedFavs &&  
-        savedFavs.map((filteredFavs)=>{
-          return(
-            <div key={filteredFavs.id}>
-              <img src={filteredFavs.imgLink} onClick={()=>handleView(filteredFavs.id, filteredFavs.imgLink, filteredFavs.favourite)} />
-            </div>
-          )})} 
-      </div>
-
-
-      <div className="mymemes-column"> 
-        <p>Created memes</p>
+      <div className="created-memes"> 
+        <h3 className="created-header">Created memes</h3>
       {savedMemes && 
         savedMemes.map((filteredMemes)=>{
           return(
             <div key={filteredMemes.id}>
-              <img src={filteredMemes.imgLink} onClick={()=>handleView(filteredMemes.id, filteredMemes.imgLink, filteredMemes.favourite)} />
+              <img className="saved-memes" src={filteredMemes.imgLink} onClick={()=>handleView(filteredMemes.id, filteredMemes.imgLink, filteredMemes.favourite)} />
             </div>
           )})} 
       </div>
 
-
-      <div className="mymemes-column">
-      <h2>Your new meme rocks!</h2> 
-        <div> <img src={mainMeme}/> 
-        <button onClick={() => handleToggleUpd(memeId)}> {favouriteKey ? "❤️" : "♡"}</button>
-        <button onClick={() => handleToggleDel(memeId)}> Delete </button>
+      <div className="mymemes-created">
+      <h2 className="mymemes-header">YOUR MEME ROCKS!</h2> 
+        <div className="selected-section"> 
+          <div className="selectedmeme-box">
+            <img className="selected-meme" src={mainMeme}/>
+          </div>
+          <div> 
+            <button className="fav-button" onClick={() => handleToggleUpd(memeId)}> {favouriteKey ? "❤️" : "♡"}</button>
+          </div>
+          <div>
+            <button className="delete-button" onClick={() => handleToggleDel(memeId)}> Delete </button>
+          </div>
         </div> 
-        
+      </div>
+
+      <div className="fav-section">
+        <h3 className="favourites-header">Favourites</h3>
+        <div>
+        {savedFavs &&  
+          savedFavs.map((filteredFavs)=>{
+           return(
+            <div key={filteredFavs.id}>
+              <img className="fav-images" src={filteredFavs.imgLink} onClick={()=>handleView(filteredFavs.id, filteredFavs.imgLink, filteredFavs.favourite)} />
+            </div>
+          )})}
+      </div> 
       </div>
     </div>
   )
