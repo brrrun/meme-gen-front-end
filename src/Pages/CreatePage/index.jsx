@@ -94,7 +94,7 @@ function CreatePage() {
             </div>
             }
         </div>
-        <form onSubmit={handleSaveMeme}>
+        <form onSubmit={handleSaveMeme} className="form">
             <label> Top Text: <input type="text" name="top" value={topText} onChange={(e)=>setTopText(e.target.value)}/></label> <br />
             <label> Bottom Text: <input type="text" name="bottom" value={bottomText} onChange={(e)=>setBottomText(e.target.value)}/></label> <br />
             <label> Text Font: <select value={selectedFont} onChange={handleFontChange}>{fontOptions.map((font, index) => (<option key={index} value={font}>{font}

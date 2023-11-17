@@ -305,6 +305,9 @@
   box-shadow: 0 0px 4px greenyellow;
 }
 
+.form {
+  justify-content: right;
+}
 /*------------------------------------------------------*/
 
 .mymemes-main{
