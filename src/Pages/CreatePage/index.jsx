@@ -49,8 +49,7 @@ function CreatePage() {
         // Extension input
     const extensions = [
         "jpg",
-        "png",
-        "gif"
+        "png"
 ]
     const handleExtensionChange = (e) => {
         setSelectedExtension(e.target.value);
