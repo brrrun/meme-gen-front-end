@@ -7,8 +7,7 @@ import { useEffect, navigate } from "react"
 
 const MEME_API = "https://api.memegen.link"
 
-const REST_API = "https://memezard-backend.onrender.com"
-// "https://memezard-backend.onrender.com"
+const REST_API = "https://localhost:5005"
 
 
 function CreatePage() {
@@ -19,8 +18,8 @@ function CreatePage() {
     
     const [topText, setTopText] = useState(" ");              // user Top Text
     const [bottomText, setBottomText] = useState(" ");        // user Bottom Text
-    const [previewMeme, setPreviewMeme] = useState();                    // meme Preview
-    const [selectedFont, setSelectedFont] = useState('impact');          // user Font
+    const [previewMeme, setPreviewMeme] = useState();                 // meme Preview
+    const [selectedFont, setSelectedFont] = useState('impact');        // user Font
     const [selectedExtension, setSelectedExtension] = useState("jpg");   // user Extension
     const [selectedWidth, setSelectedWidth] = useState(500);            // selected Width
 
@@ -34,7 +33,6 @@ function CreatePage() {
     
 
         // Font input
-
     const fontOptions = [
         "impact", 
         "kalam",

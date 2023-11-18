@@ -2,19 +2,24 @@ import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const REST_API = "https://memezard-backend.onrender.com";
+const REST_API = "https://localhost:5005";
+/* For changing between local, faster testing and online rendering
+https://memezard-backend.onrender.com
+https://localhost:5005  */
+
 
 function MyMemes() {
-    const [savedMemes, setSavedMemes] = useState();               // created memes on JSON file
-    const [savedFavs, setSavedFavs] = useState();
-    const [mainMeme, setMainMeme] = useState();
-    const [favouriteKey, setFavouriteKey] = useState();
-    const [memeId, setMemeId] = useState();
+    const [savedMemes, setSavedMemes] = useState();       // created memes 
+    const [savedFavs, setSavedFavs] = useState();         // favoured memes
+    const [mainMeme, setMainMeme] = useState();           // middle page meme
+    const [favouriteKey, setFavouriteKey] = useState();   // favourite property of current main meme
+    const [memeId, setMemeId] = useState();               // id property of current main meme
     
+
       // Fetch all memes, created single main meme, and create useStates of favourite & deleted properties
       async function getMemes(){
         try{
-        let response = await axios.get(`https://memezard-backend.onrender.com/created`); 
+        let response = await axios.get(`https://localhost:5005/created`); 
         const created = response.data;
         setSavedMemes(created);
         let favouriteMemes = created.filter((meme)=>{
@@ -29,45 +34,21 @@ function MyMemes() {
         catch(error){
           console.log(error);
         }
-      }
+      } 
     useEffect(() => {
       getMemes()
     }, []);
 
+
+          // setting main meme when clicking on a side bar meme
     const handleView = (id, link, favourite) => { 
       console.log(id, link, favourite)
       setMainMeme(link); 
       setMemeId(id);
       setFavouriteKey(favourite);
-      //setMemeId(e.target.id)
      } 
 
-  const handleToggle = (id) => {
-    const updatedMemes = savedMemes.map((meme) =>
-      meme.id === id ? { ...meme, favorite: !meme.favorite } : meme
-    );
-
-    // Move the favorite memes to the beginning of the array
-    const sortedMemes = [...updatedMemes].sort((a, b) => (b.favorite ? 1 : 0) - (a.favorite ? 1 : 0));
-
-    setSavedMemes(sortedMemes);
-
-    const updatedMeme = sortedMemes.find((meme) => meme.id === id);
-    
-    // Update the favorite status in the API
-    axios.post(`${REST_API}/created/${id}`, { favorite: updatedMeme.favorite })
-      .then((response) => console.log(response))
-      .catch((error) => console.error(error));
-  };
-
-  const deleteMeme = (id) => {
-    axios.delete(`${REST_API}/created/${id}`).then(() => {
-      const updatedMemes = savedMemes.filter((meme) => meme.id !== id);
-      setSavedMemes(updatedMemes);
-      navigate("/mymemes");
-    }).catch((error) => console.log(error));
-  }
-
+          // favourite button logic
      const  handleToggleUpd = (id) => {
       console.log(id);
       axios.put(`${REST_API}/created/${id}`, {imgLink: mainMeme, favourite: !favouriteKey, id: memeId})
@@ -86,7 +67,7 @@ function MyMemes() {
 
      })}
 
-      
+          // delete button logic      
      const handleToggleDel = (id) => {
       console.log(id);
       axios.delete(`${REST_API}/created/${id}`).then(()=>{
@@ -110,48 +91,12 @@ function MyMemes() {
           }
         })
       })
-      /*if (!mainMeme) {
-        return;
-      }
-      setSavedMemes((prevSavedMemes) => {
-        const memeIndex1 = prevSavedMemes.findIndex((meme) => meme.imgLink === mainMeme);
-    
-        if (memeIndex1 !== -1) {
-          const updatedMemes = [...prevSavedMemes];
-          updatedMemes[memeIndex1] = { ...updatedMemes[memeIndex1], deleted: true };
-    
-          axios
-            .put(`${REST_API}/created/${memeId}`, updatedMemes[memeIndex1])
-            .then((response) => {
-              console.log(response.data);
-            })
-            .catch((error) => console.log(error));
-    
-          setSavedFavs((prevSavedFavs) => {
-            const memeIndex2 = prevSavedFavs.findIndex((meme) => meme.imgLink === mainMeme);
-            if (memeIndex2 !== -1) {
-              const updatedFavs = [...prevSavedFavs];
-              updatedFavs[memeIndex2] = { ...updatedFavs[memeIndex2], deleted: true };
-    
-              axios
-                .put(`${REST_API}/created/${memeId}`, updatedFavs[memeIndex2])
-                .then((response) => {
-                  console.log(response.data);
-                })
-                .catch((error) => console.log(error));
-            }
-            return updatedFavs; 
-          });
-          return updatedMemes;
-        }
-        // Return the previous state if the meme is not found
-        return prevSavedMemes;*/
-      };
+      };   
     
     
-    
-  return (
-    <div className="mymemes-main">
+  return (  
+    /* Left column with all created memes, centered main meme, and right column fav memes */
+    <div className="mymemes-main"> 
       <div className="created-memes"> 
         <h3 className="created-header">Created memes</h3>
       {savedMemes && 
