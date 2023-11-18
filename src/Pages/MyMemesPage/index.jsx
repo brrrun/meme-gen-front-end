@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const REST_API = "https://localhost:5005";
+const REST_API = "https://memezard-backend.onrender.com";
 /* For changing between local, faster testing and online rendering
 https://memezard-backend.onrender.com
 https://localhost:5005  */
@@ -19,7 +19,7 @@ function MyMemes() {
       // Fetch all memes, created single main meme, and create useStates of favourite & deleted properties
       async function getMemes(){
         try{
-        let response = await axios.get(`https://localhost:5005/created`); 
+        let response = await axios.get(`https://memezard-backend.onrender.com/created`); 
         const created = response.data;
         setSavedMemes(created);
         let favouriteMemes = created.filter((meme)=>{
